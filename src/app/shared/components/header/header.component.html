@@ -1,1 +1,300 @@
-<p>header works!</p>
+<header class="bg-background shadow-md z-50 border-b border-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a routerLink="/" class="flex items-center logo-link">
+          <span class="text-2xl font-bold text-headline">Natours</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a
+          routerLink="/home"
+          routerLinkActive="active-link"
+          class="nav-link text-paragraph hover:text-headline transition-colors duration-200"
+        >
+          Home
+        </a>
+        <a
+          routerLink="/tours"
+          routerLinkActive="active-link"
+          class="nav-link text-paragraph hover:text-headline transition-colors duration-200"
+        >
+          Tours
+        </a>
+        <a
+          routerLink="/blog"
+          routerLinkActive="active-link"
+          class="nav-link text-paragraph hover:text-headline transition-colors duration-200"
+        >
+          Blog
+        </a>
+        <a
+          routerLink="/about"
+          routerLinkActive="active-link"
+          class="nav-link text-paragraph hover:text-headline transition-colors duration-200"
+        >
+          About
+        </a>
+        <a
+          routerLink="/contact"
+          routerLinkActive="active-link"
+          class="nav-link text-paragraph hover:text-headline transition-colors duration-200"
+        >
+          Contact
+        </a>
+        <!-- Admin Portal - Only visible for admin users -->
+        <a
+          *ngIf="isAdmin"
+          routerLink="/admin"
+          routerLinkActive="active-link"
+          class="nav-link text-paragraph hover:text-headline transition-colors duration-200"
+        >
+          Admin Portal
+        </a>
+      </nav>
+
+      <!-- Desktop User Menu -->
+      <div class="hidden md:flex items-center space-x-4">
+        <!-- Theme Toggle -->
+        <app-theme-toggle></app-theme-toggle>
+
+        <ng-container *ngIf="!isAuthenticated; else loggedInMenu">
+          <!-- Not logged in -->
+          <a
+            routerLink="/login"
+            class="text-paragraph hover:text-headline transition-colors duration-200"
+          >
+            Login
+          </a>
+          <a
+            routerLink="/signup"
+            class="bg-button text-button-text px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors duration-200 font-medium btn-primary"
+          >
+            Sign Up
+          </a>
+        </ng-container>
+
+        <ng-template #loggedInMenu>
+          <!-- Logged in menu -->
+          <a
+            routerLink="/bookings"
+            routerLinkActive="active-link"
+            class="nav-link text-paragraph hover:text-headline transition-colors duration-200"
+          >
+            My Bookings
+          </a>
+          <div class="relative" [class.open]="isUserMenuOpen">
+            <button
+              (click)="toggleUserMenu()"
+              class="flex items-center space-x-2 text-paragraph hover:text-headline transition-colors duration-200"
+            >
+              <div
+                class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center"
+              >
+                <span class="text-headline font-medium">{{
+                  getUserInitials()
+                }}</span>
+              </div>
+              <span>My Account</span>
+              <svg
+                class="w-4 h-4 transition-transform duration-200"
+                [class.rotate-180]="isUserMenuOpen"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- User Dropdown Menu -->
+            <div
+              *ngIf="isUserMenuOpen"
+              class="absolute right-0 mt-2 w-48 bg-background rounded-md shadow-lg py-1 z-10 user-menu-dropdown border border-secondary"
+            >
+              <a
+                routerLink="/user-profile"
+                class="block px-4 py-2 text-sm text-paragraph hover:bg-secondary hover:text-headline transition-colors duration-200"
+              >
+                Profile
+              </a>
+              <a
+                routerLink="/dashboard"
+                class="block px-4 py-2 text-sm text-paragraph hover:bg-secondary hover:text-headline transition-colors duration-200"
+              >
+                Dashboard
+              </a>
+              <button
+                (click)="logout()"
+                class="block w-full text-left px-4 py-2 text-sm text-paragraph hover:bg-secondary hover:text-headline transition-colors duration-200"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          (click)="toggleMobileMenu()"
+          type="button"
+          class="text-paragraph hover:text-headline focus:outline-none focus:text-headline transition-colors duration-200"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              *ngIf="!isMobileMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              *ngIf="isMobileMenuOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div
+      *ngIf="isMobileMenuOpen"
+      class="md:hidden bg-background border-t border-tertiary mobile-menu-transition"
+    >
+      <div class="px-2 pt-2 pb-3 space-y-1 mobile-menu-content">
+        <a
+          routerLink="/home"
+          routerLinkActive="active-mobile-link"
+          (click)="closeMobileMenu()"
+          class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+        >
+          Home
+        </a>
+        <a
+          routerLink="/tours"
+          routerLinkActive="active-mobile-link"
+          (click)="closeMobileMenu()"
+          class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+        >
+          Tours
+        </a>
+        <a
+          routerLink="/blog"
+          routerLinkActive="active-mobile-link"
+          (click)="closeMobileMenu()"
+          class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+        >
+          Blog
+        </a>
+        <a
+          routerLink="/about"
+          routerLinkActive="active-mobile-link"
+          (click)="closeMobileMenu()"
+          class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+        >
+          About
+        </a>
+        <a
+          routerLink="/contact"
+          routerLinkActive="active-mobile-link"
+          (click)="closeMobileMenu()"
+          class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+        >
+          Contact
+        </a>
+        <!-- Admin Portal - Only visible for admin users -->
+        <a
+          *ngIf="isAdmin"
+          routerLink="/admin"
+          routerLinkActive="active-mobile-link"
+          (click)="closeMobileMenu()"
+          class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+        >
+          Admin Portal
+        </a>
+
+        <div class="border-t border-tertiary pt-4">
+          <!-- Theme Toggle for Mobile -->
+          <div class="px-3 py-2 mb-2">
+            <div class="flex items-center justify-between">
+              <span class="text-paragraph font-medium">Theme</span>
+              <app-theme-toggle></app-theme-toggle>
+            </div>
+          </div>
+
+          <ng-container *ngIf="!isAuthenticated; else loggedInMobileMenu">
+            <!-- Not logged in -->
+            <a
+              routerLink="/login"
+              (click)="closeMobileMenu()"
+              class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+            >
+              Login
+            </a>
+            <a
+              routerLink="/signup"
+              (click)="closeMobileMenu()"
+              class="mobile-nav-link block px-3 py-2 bg-button text-button-text hover:bg-opacity-90 transition-colors duration-200 font-medium rounded-md mx-3 text-center"
+            >
+              Sign Up
+            </a>
+          </ng-container>
+
+          <ng-template #loggedInMobileMenu>
+            <!-- Logged in menu -->
+            <a
+              routerLink="/bookings"
+              routerLinkActive="active-mobile-link"
+              (click)="closeMobileMenu()"
+              class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+            >
+              My Bookings
+            </a>
+            <a
+              routerLink="/user-profile"
+              routerLinkActive="active-mobile-link"
+              (click)="closeMobileMenu()"
+              class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+            >
+              Profile
+            </a>
+            <a
+              routerLink="/dashboard"
+              routerLinkActive="active-mobile-link"
+              (click)="closeMobileMenu()"
+              class="mobile-nav-link block px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+            >
+              Dashboard
+            </a>
+            <button
+              (click)="logout()"
+              class="mobile-nav-link block w-full text-left px-3 py-2 text-paragraph hover:text-headline hover:bg-secondary transition-colors duration-200"
+            >
+              Logout
+            </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

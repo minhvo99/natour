@@ -1,3 +1,487 @@
-<p>
-  home works!
-</p>
+<!-- Hero Section -->
+<section
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+>
+  <!-- Background Video/Image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/assets/images/hero-bg.jpg"
+      alt="Adventure landscape"
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="container relative z-10 text-center text-white">
+    <h1 class="hero-title font-bold mb-6 text-white">
+      Unforgettable Adventures Await
+    </h1>
+    <p class="hero-subtitle mb-8 text-white opacity-90 max-w-3xl mx-auto">
+      Discover breathtaking tours led by expert guides. Experience the world's
+      most stunning destinations with carefully curated adventures.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <a
+        routerLink="/tours"
+        class="bg-button text-button-text px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-highlight focus:ring-offset-2"
+      >
+        Explore Tours
+      </a>
+      <a
+        routerLink="/booking"
+        class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-headline transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+      >
+        Book Now
+      </a>
+    </div>
+
+    <!-- Trust Indicators -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-2xl mx-auto"
+    >
+      <div class="text-center">
+        <div class="text-2xl font-bold text-highlight mb-1">500+</div>
+        <div class="text-sm opacity-80">Happy Travelers</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-bold text-highlight mb-1">50+</div>
+        <div class="text-sm opacity-80">Destinations</div>
+      </div>
+      <div class="text-center sm:col-span-2 lg:col-span-1">
+        <div class="text-2xl font-bold text-highlight mb-1">4.9/5</div>
+        <div class="text-sm opacity-80">Average Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Tours Section -->
+<section class="py-16 bg-background">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="section-title font-bold text-headline mb-4">
+        Top 5 Popular Tours
+      </h2>
+      <p class="section-subtitle text-paragraph max-w-2xl mx-auto">
+        Don't miss out on these amazing adventures. Book now and create memories
+        that will last a lifetime.
+      </p>
+    </div>
+
+    <!-- Tours Slider Container -->
+    <div class="relative mb-12">
+      <!-- Slider Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Tour Card 1 -->
+        <div
+          class="bg-background border border-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="/assets/images/tour-1.jpg"
+              alt="Tour 1"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute top-4 left-4 bg-headline bg-opacity-80 text-background px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
+            >
+              5 days
+            </div>
+            <div
+              class="absolute top-4 right-4 bg-button text-button-text px-3 py-2 rounded-lg font-bold text-lg shadow-lg"
+            >
+              $397
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-headline mb-2">
+              The Forest Hiker
+            </h3>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-sm bg-tertiary bg-opacity-20 text-tertiary px-2 py-1 rounded font-medium"
+                >Easy</span
+              >
+              <div class="flex items-center">
+                <span class="text-highlight text-sm">★★★★★</span>
+                <span class="text-sm text-paragraph ml-1">4.7 (37)</span>
+              </div>
+            </div>
+            <p class="text-paragraph text-sm mb-4">
+              Explore the breathtaking Amazon rainforest with experienced
+              guides.
+            </p>
+            <button
+              class="w-full bg-button text-button-text py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Tour Card 2 -->
+        <div
+          class="bg-background border border-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="/assets/images/tour-2.jpg"
+              alt="Tour 2"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute top-4 left-4 bg-headline bg-opacity-80 text-background px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
+            >
+              7 days
+            </div>
+            <div
+              class="absolute top-4 right-4 bg-button text-button-text px-3 py-2 rounded-lg font-bold text-lg shadow-lg"
+            >
+              $497
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-headline mb-2">
+              The Sea Explorer
+            </h3>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-sm bg-highlight bg-opacity-20 text-highlight px-2 py-1 rounded font-medium"
+                >Medium</span
+              >
+              <div class="flex items-center">
+                <span class="text-highlight text-sm">★★★★★</span>
+                <span class="text-sm text-paragraph ml-1">4.9 (54)</span>
+              </div>
+            </div>
+            <p class="text-paragraph text-sm mb-4">
+              Dive into crystal-clear waters and explore vibrant coral reefs.
+            </p>
+            <button
+              class="w-full bg-button text-button-text py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Tour Card 3 -->
+        <div
+          class="bg-background border border-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src="/assets/images/tour-3.jpg"
+              alt="Tour 3"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute top-4 left-4 bg-headline bg-opacity-80 text-background px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
+            >
+              10 days
+            </div>
+            <div
+              class="absolute top-4 right-4 bg-button text-button-text px-3 py-2 rounded-lg font-bold text-lg shadow-lg"
+            >
+              $897
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-headline mb-2">
+              The Snow Adventurer
+            </h3>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-sm bg-red-500 bg-opacity-20 text-red-600 px-2 py-1 rounded font-medium"
+                >Difficult</span
+              >
+              <div class="flex items-center">
+                <span class="text-highlight text-sm">★★★★★</span>
+                <span class="text-sm text-paragraph ml-1">4.8 (23)</span>
+              </div>
+            </div>
+            <p class="text-paragraph text-sm mb-4">
+              Challenge yourself with an epic trek through the stunning
+              Himalayas.
+            </p>
+            <button
+              class="w-full bg-button text-button-text py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Navigation -->
+      <div class="flex justify-center mt-8">
+        <button class="w-3 h-3 bg-highlight rounded-full mx-1"></button>
+        <button class="w-3 h-3 bg-secondary rounded-full mx-1"></button>
+        <button class="w-3 h-3 bg-secondary rounded-full mx-1"></button>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a
+        routerLink="/tours"
+        class="bg-button text-button-text px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105 shadow-md focus:outline-none focus:ring-2 focus:ring-highlight focus:ring-offset-2"
+      >
+        View All Tours
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-16 bg-secondary">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="section-title font-bold text-headline mb-4">How It Works</h2>
+      <p class="section-subtitle text-paragraph max-w-2xl mx-auto">
+        Plan your perfect adventure in just 3 simple steps
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Step 1 -->
+      <div class="text-center group">
+        <div
+          class="w-16 h-16 bg-highlight rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200"
+        >
+          <svg
+            class="w-8 h-8 text-button-text"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-headline mb-2">Browse</h3>
+        <p class="text-paragraph">
+          Explore our curated collection of adventures and find the perfect tour
+          for you.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="text-center group">
+        <div
+          class="w-16 h-16 bg-highlight rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200"
+        >
+          <svg
+            class="w-8 h-8 text-button-text"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-headline mb-2">Book</h3>
+        <p class="text-paragraph">
+          Secure your spot with our easy booking process and flexible payment
+          options.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="text-center group">
+        <div
+          class="w-16 h-16 bg-highlight rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200"
+        >
+          <svg
+            class="w-8 h-8 text-button-text"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-headline mb-2">Adventure</h3>
+        <p class="text-paragraph">
+          Embark on your unforgettable journey with expert guides and fellow
+          adventurers.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof Section -->
+<section class="py-16 bg-background">
+  <div class="container">
+    <!-- Statistics -->
+    <div class="text-center mb-16">
+      <h2 class="section-title font-bold text-headline mb-4">
+        Trusted by Adventurers Worldwide
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-highlight mb-2">1,200+</div>
+          <div class="text-paragraph">Tours Completed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-highlight mb-2">35</div>
+          <div class="text-paragraph">Countries Covered</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-highlight mb-2">5,000+</div>
+          <div class="text-paragraph">Happy Customers</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Carousel -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold text-headline text-center mb-8">
+        What Our Travelers Say
+      </h3>
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Testimonial Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-background border border-secondary rounded-lg shadow-lg p-6"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="/assets/images/customer-1.jpg"
+                alt="Customer"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <div class="font-semibold text-headline">Sarah Johnson</div>
+                <div class="text-sm text-paragraph">Verified Traveler</div>
+              </div>
+            </div>
+            <div class="flex mb-4">
+              <span class="text-highlight text-lg">★★★★★</span>
+            </div>
+            <p class="text-paragraph">
+              "An absolutely incredible experience! The guides were
+              knowledgeable, the locations were breathtaking, and everything was
+              perfectly organized."
+            </p>
+          </div>
+
+          <div
+            class="bg-background border border-secondary rounded-lg shadow-lg p-6"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="/assets/images/customer-2.jpg"
+                alt="Customer"
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <div class="font-semibold text-headline">Michael Chen</div>
+                <div class="text-sm text-paragraph">Adventure Enthusiast</div>
+              </div>
+            </div>
+            <div class="flex mb-4">
+              <span class="text-highlight text-lg">★★★★★</span>
+            </div>
+            <p class="text-paragraph">
+              "Best adventure tour company I've ever used. Professional, safe,
+              and they really care about creating memorable experiences."
+            </p>
+          </div>
+        </div>
+
+        <!-- Carousel Navigation -->
+        <div class="flex justify-center mt-8">
+          <button class="w-3 h-3 bg-highlight rounded-full mx-1"></button>
+          <button class="w-3 h-3 bg-secondary rounded-full mx-1"></button>
+          <button class="w-3 h-3 bg-secondary rounded-full mx-1"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Gallery -->
+    <div class="text-center">
+      <h3 class="text-2xl font-bold text-headline mb-8">
+        Real Adventures, Real Memories
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div class="aspect-square overflow-hidden rounded-lg">
+          <img
+            src="/assets/images/gallery-1.jpg"
+            alt="Adventure photo"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg">
+          <img
+            src="/assets/images/gallery-2.jpg"
+            alt="Adventure photo"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg">
+          <img
+            src="/assets/images/gallery-3.jpg"
+            alt="Adventure photo"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="aspect-square overflow-hidden rounded-lg">
+          <img
+            src="/assets/images/gallery-4.jpg"
+            alt="Adventure photo"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Signup Section -->
+<section class="py-16 bg-tertiary">
+  <div class="container">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="section-title font-bold text-headline mb-4">Stay Inspired</h2>
+      <p class="section-subtitle text-paragraph mb-8">
+        Get adventure inspiration delivered weekly. Discover new destinations,
+        travel tips, and exclusive offers.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-highlight focus:border-transparent"
+        />
+        <button
+          class="bg-button text-button-text px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105 shadow-md focus:outline-none focus:ring-2 focus:ring-highlight focus:ring-offset-2"
+        >
+          Subscribe
+        </button>
+      </div>
+
+      <p class="text-sm text-paragraph mt-4 opacity-70">
+        Join 10,000+ adventurers. Unsubscribe anytime.
+      </p>
+    </div>
+  </div>
+</section>

@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./components/login/login.component";
 import { SignupComponent } from "./components/signup/signup.component";
 import { ForgotPasswordComponent } from "./components/forgot-password/forgot-password.component";
+import { TourCardComponent } from './components/tour-card/tour-card.component';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 
 const imports = [CommonModule, FormsModule, ReactiveFormsModule];
 
-const declarations = [HeaderComponent, FooterComponent, SidebarComponent, LoginComponent, SignupComponent, ForgotPasswordComponent]
+const declarations = [HeaderComponent, FooterComponent, SidebarComponent, LoginComponent, SignupComponent, ForgotPasswordComponent, TourCardComponent, ThemeToggleComponent]
 
 
 @NgModule({

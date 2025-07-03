@@ -89,4 +89,22 @@ export class AuthService {
     
     return throwError(() => new Error(errorMessage));
   }
+
+  /**
+   * Logout user
+   */
+  logout(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Clear all stored data
+      localStorage.removeItem(StorageKeys.ACCESS_TOKEN);
+      localStorage.removeItem(StorageKeys.REFRESH_TOKEN);
+      localStorage.removeItem(StorageKeys.USER_DATA);
+    }
+    
+    // Clear current user
+    this.currentUserSubject.next(null);
+    
+    // Navigate to login page
+    this.router.navigate(['/login']);
+  }
 }

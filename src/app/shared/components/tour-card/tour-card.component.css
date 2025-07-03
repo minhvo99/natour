@@ -1,0 +1,16 @@
+/* Essential CSS that can't be achieved with Tailwind alone */
+
+/* Line clamp utility for description text */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced focus states for better accessibility */
+.group:focus-within {
+  box-shadow: 0 0 0 2px var(--color-highlight),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}

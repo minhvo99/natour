@@ -1,0 +1,157 @@
+<div
+  class="bg-background border border-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
+  [class.opacity-70]="loading"
+  [class.pointer-events-none]="loading"
+>
+  <!-- Tour Image -->
+  <div class="relative h-64 sm:h-48 overflow-hidden">
+    <img
+      [src]="tour.image || '/assets/images/placeholder.svg'"
+      [alt]="tour.name"
+      (error)="onImageError($event)"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+    />
+    <!-- Duration Badge -->
+    <div
+      class="absolute top-4 left-4 bg-headline bg-opacity-80 text-background px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
+    >
+      {{ tour.duration }} {{ tour.duration === 1 ? "day" : "days" }}
+    </div>
+    <!-- Price Badge -->
+    <div
+      class="absolute top-4 right-4 bg-button text-button-text px-3 py-2 rounded-lg font-bold text-lg shadow-lg"
+    >
+      {{ getFormattedPrice() }}
+    </div>
+  </div>
+
+  <!-- Tour Content -->
+  <div class="p-6 sm:p-4">
+    <!-- Tour Name -->
+    <h3
+      class="text-xl font-bold text-headline mb-2 group-hover:text-highlight transition-colors duration-200"
+    >
+      {{ tour.name }}
+    </h3>
+
+    <!-- Destination -->
+    <div class="flex items-center text-paragraph mb-3">
+      <svg
+        class="w-4 h-4 mr-2 text-highlight flex-shrink-0"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+      <span class="font-medium">{{ tour.destination }}</span>
+    </div>
+
+    <!-- Description -->
+    <p class="text-paragraph text-sm leading-relaxed mb-4 line-clamp-3">
+      {{ tour.description }}
+    </p>
+
+    <!-- Tour Details -->
+    <div
+      class="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-paragraph mb-4 gap-2"
+    >
+      <!-- Max Group Size -->
+      <div class="flex items-center">
+        <svg
+          class="w-4 h-4 mr-1 text-highlight flex-shrink-0"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"
+          ></path>
+        </svg>
+        <span>{{ tour.maxGroupSize }} people</span>
+      </div>
+
+      <!-- Difficulty -->
+      <div class="flex items-center">
+        <svg
+          class="w-4 h-4 mr-1 text-highlight flex-shrink-0"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+          ></path>
+        </svg>
+        <span
+          class="capitalize font-medium"
+          [ngClass]="{
+            'text-tertiary': tour.difficulty === 'easy',
+            'text-highlight': tour.difficulty === 'medium',
+            'text-red-500': tour.difficulty === 'difficult'
+          }"
+          >{{ tour.difficulty }}</span
+        >
+      </div>
+    </div>
+
+    <!-- Rating -->
+    <div class="flex items-center mb-4">
+      <div class="flex items-center mr-2">
+        <span
+          *ngFor="let star of getStarArray(tour.ratingsAverage)"
+          class="text-highlight text-lg"
+        >
+          ★
+        </span>
+        <span
+          *ngFor="let star of getEmptyStarArray(tour.ratingsAverage)"
+          class="text-secondary text-lg"
+        >
+          ★
+        </span>
+      </div>
+      <span class="text-paragraph font-medium"
+        >{{ tour.ratingsAverage }}/5</span
+      >
+      <span class="text-paragraph text-sm ml-1"
+        >({{ tour.ratingsQuantity }} reviews)</span
+      >
+    </div>
+
+    <!-- Action Button -->
+    <div class="flex justify-end sm:justify-stretch">
+      <button
+        (click)="onBookNow()"
+        [disabled]="loading"
+        class="bg-button text-button-text px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-md focus:outline-none focus:ring-2 focus:ring-highlight focus:ring-offset-2 sm:w-full sm:justify-center"
+      >
+        <span *ngIf="!loading">Book Now</span>
+        <span *ngIf="loading" class="flex items-center justify-center">
+          <svg
+            class="animate-spin -ml-1 mr-2 h-4 w-4 text-current"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          Booking...
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

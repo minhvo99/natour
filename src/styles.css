@@ -1,2 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/* Natours Design System Colors - Default Light Theme */
+:root {
+  /* Elements */
+  --color-background: #fffffe;
+  --color-headline: #272343;
+  --color-paragraph: #2d334a;
+  --color-button: #ffd803;
+  --color-button-text: #272343;
+
+  /* Illustration */
+  --color-stroke: #272343;
+  --color-main: #fffffe;
+  --color-highlight: #ffd803;
+  --color-secondary: #e3f6f5;
+  --color-tertiary: #bae8e8;
+}
+
+/* Dark Theme */
+.theme-dark {
+  --color-background: #16161a;
+  --color-headline: #fffffe;
+  --color-paragraph: #94a1b2;
+  --color-button: #7f5af0;
+  --color-button-text: #fffffe;
+  --color-stroke: #010101;
+  --color-main: #fffffe;
+  --color-highlight: #7f5af0;
+  --color-secondary: #72757e;
+  --color-tertiary: #2cb67d;
+}
+
+/* Apply design system colors to body */
+body {
+  background-color: var(--color-background);
+  color: var(--color-paragraph);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tailwind custom utilities */
+/* Custom container class - similar to Bootstrap container */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.text-headline {
+  color: var(--color-headline);
+}
+
+.text-paragraph {
+  color: var(--color-paragraph);
+}
+
+.text-button-text {
+  color: var(--color-button-text);
+}
+
+.bg-button {
+  background-color: var(--color-button);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--color-tertiary);
+}
+
+.bg-highlight {
+  background-color: var(--color-highlight);
+}
+
+.border-tertiary {
+  border-color: var(--color-tertiary);
+}
+
+.border-highlight {
+  border-color: var(--color-highlight);
+}
+
+.ring-highlight {
+  --tw-ring-color: var(--color-highlight);
+}

@@ -1,0 +1,80 @@
+<div class="container mx-auto px-4 py-8">
+  <!-- Header Section -->
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-bold text-headline mb-4">Adventure Tours</h1>
+    <p class="text-xl text-paragraph max-w-2xl mx-auto">
+      Discover amazing adventures around the world. From tropical paradises to
+      snow-capped mountains, we have the perfect tour for every adventurer.
+    </p>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="mb-8 flex flex-wrap justify-center gap-4">
+    <button
+      class="px-6 py-2 bg-button text-button-text rounded-full font-medium hover:bg-opacity-90 transition-colors duration-200"
+    >
+      All Tours
+    </button>
+    <button
+      class="px-6 py-2 bg-secondary text-paragraph rounded-full font-medium hover:bg-tertiary transition-colors duration-200"
+    >
+      Easy
+    </button>
+    <button
+      class="px-6 py-2 bg-secondary text-paragraph rounded-full font-medium hover:bg-tertiary transition-colors duration-200"
+    >
+      Medium
+    </button>
+    <button
+      class="px-6 py-2 bg-secondary text-paragraph rounded-full font-medium hover:bg-tertiary transition-colors duration-200"
+    >
+      Difficult
+    </button>
+  </div>
+
+  <!-- Tours Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    <app-tour-card
+      *ngFor="let tour of tours"
+      [tour]="tour"
+      (bookTour)="onBookTour($event)"
+      class="h-full"
+    ></app-tour-card>
+  </div>
+
+  <!-- No Tours Message -->
+  <div *ngIf="tours.length === 0" class="text-center py-12">
+    <div class="bg-white rounded-lg shadow-md p-8 max-w-md mx-auto">
+      <svg
+        class="w-16 h-16 text-tertiary mx-auto mb-4"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+        ></path>
+      </svg>
+      <h3 class="text-xl font-semibold text-headline mb-2">
+        No Tours Available
+      </h3>
+      <p class="text-paragraph">Check back soon for new exciting adventures!</p>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="bg-white rounded-lg shadow-md p-8 text-center">
+    <h2 class="text-3xl font-bold text-headline mb-4">
+      Ready for Your Next Adventure?
+    </h2>
+    <p class="text-paragraph mb-6 max-w-2xl mx-auto">
+      Can't find the perfect tour? Contact our travel experts and we'll create a
+      custom adventure just for you.
+    </p>
+    <a
+      routerLink="/contact"
+      class="inline-block bg-button text-button-text px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105"
+    >
+      Contact Us
+    </a>
+  </div>
+</div>
