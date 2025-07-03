@@ -5,9 +5,10 @@ import { AuthService } from '../../../core/services/auth.service';
 import { ForgotPasswordRequest } from '../../../core/models/auth.models';
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.css']
+    selector: 'app-forgot-password',
+    templateUrl: './forgot-password.component.html',
+    styleUrls: ['./forgot-password.component.css'],
+    standalone: false
 })
 export class ForgotPasswordComponent implements OnInit {
   private authService = inject(AuthService);

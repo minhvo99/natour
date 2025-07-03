@@ -3,9 +3,10 @@ import { AuthService } from '../../core/services/auth.service';
 import { User } from '../../core/models/auth.models';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css'],
+    standalone: false
 })
 export class DashboardComponent implements OnInit {
   private authService = inject(AuthService);
