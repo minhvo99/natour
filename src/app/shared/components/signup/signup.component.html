@@ -1,0 +1,177 @@
+<div
+  class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+>
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Tạo tài khoản mới
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Hoặc
+        <a
+          routerLink="/login"
+          class="font-medium text-indigo-600 hover:text-indigo-500"
+        >
+          đăng nhập vào tài khoản có sẵn
+        </a>
+      </p>
+    </div>
+
+    <form
+      class="mt-8 space-y-6"
+      [formGroup]="signupForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- Full Name field -->
+      <div>
+        <label for="fullName" class="sr-only">Họ và tên</label>
+        <input
+          id="fullName"
+          name="fullName"
+          type="text"
+          formControlName="fullName"
+          class="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          [class.border-red-500]="fullName?.invalid && fullName?.touched"
+          placeholder="Họ và tên"
+        />
+
+        <div
+          *ngIf="fullName?.invalid && fullName?.touched"
+          class="mt-1 text-sm text-red-600"
+        >
+          <div *ngIf="fullName?.errors?.['required']">
+            Họ và tên là bắt buộc
+          </div>
+          <div *ngIf="fullName?.errors?.['minlength']">
+            Họ và tên phải có ít nhất 2 ký tự
+          </div>
+        </div>
+      </div>
+
+      <!-- Email field -->
+      <div>
+        <label for="email" class="sr-only">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          formControlName="email"
+          class="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          [class.border-red-500]="email?.invalid && email?.touched"
+          placeholder="Địa chỉ email"
+        />
+
+        <div
+          *ngIf="email?.invalid && email?.touched"
+          class="mt-1 text-sm text-red-600"
+        >
+          <div *ngIf="email?.errors?.['required']">Email là bắt buộc</div>
+          <div *ngIf="email?.errors?.['email']">Email không hợp lệ</div>
+        </div>
+      </div>
+
+      <!-- Password field -->
+      <div>
+        <label for="password" class="sr-only">Mật khẩu</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          formControlName="password"
+          class="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          [class.border-red-500]="password?.invalid && password?.touched"
+          placeholder="Mật khẩu"
+        />
+
+        <div
+          *ngIf="password?.invalid && password?.touched"
+          class="mt-1 text-sm text-red-600"
+        >
+          <div *ngIf="password?.errors?.['required']">Mật khẩu là bắt buộc</div>
+          <div *ngIf="password?.errors?.['minlength']">
+            Mật khẩu phải có ít nhất 6 ký tự
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirm Password field -->
+      <div>
+        <label for="confirmPassword" class="sr-only">Xác nhận mật khẩu</label>
+        <input
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          formControlName="confirmPassword"
+          class="relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          [class.border-red-500]="
+            confirmPassword?.invalid && confirmPassword?.touched
+          "
+          placeholder="Xác nhận mật khẩu"
+        />
+
+        <div
+          *ngIf="confirmPassword?.invalid && confirmPassword?.touched"
+          class="mt-1 text-sm text-red-600"
+        >
+          <div *ngIf="confirmPassword?.errors?.['required']">
+            Xác nhận mật khẩu là bắt buộc
+          </div>
+          <div *ngIf="confirmPassword?.errors?.['passwordMismatch']">
+            Mật khẩu xác nhận không khớp
+          </div>
+        </div>
+      </div>
+
+      <!-- Error message -->
+      <div
+        *ngIf="errorMessage"
+        class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded"
+      >
+        {{ errorMessage }}
+      </div>
+
+      <!-- Submit button -->
+      <div>
+        <button
+          type="submit"
+          [disabled]="signupForm.invalid || isLoading"
+          class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span *ngIf="isLoading" class="mr-2">
+            <svg class="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </span>
+
+          {{ isLoading ? "Đang đăng ký..." : "Đăng ký" }}
+        </button>
+      </div>
+
+      <!-- Terms and conditions -->
+      <div class="text-center">
+        <p class="text-xs text-gray-600">
+          Bằng việc đăng ký, bạn đồng ý với
+          <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"
+            >Điều khoản dịch vụ</a
+          >
+          và
+          <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"
+            >Chính sách bảo mật</a
+          >
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
