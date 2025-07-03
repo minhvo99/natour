@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './shared/components/login/login.component';
 import { SignupComponent } from './shared/components/signup/signup.component';
+import { ForgotPasswordComponent } from './shared/components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -10,15 +11,15 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./shared/components/login/login.component').then(m => m.LoginComponent)
+    component: LoginComponent
   },
   {
     path: 'signup',
-    loadComponent: () => import('./shared/components/signup/signup.component').then(m => m.SignupComponent)
+    component: SignupComponent
   },
   {
     path: 'forgot-password',
-    loadComponent: () => import('./shared/components/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
+    component: ForgotPasswordComponent
   }
   
 ];
