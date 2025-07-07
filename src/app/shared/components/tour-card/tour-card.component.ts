@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Tour } from '../../models/tour.models';
 
 @Component({
-  selector: 'app-tour-card',
+  selector: 'tour-card',
   standalone: false,
   templateUrl: './tour-card.component.html',
   styleUrl: './tour-card.component.css'
@@ -37,12 +37,6 @@ export class TourCardComponent {
     this.bookTour.emit(this.tour);
   }
 
-  /**
-   * Handle image load error
-   */
-  onImageError(event: any): void {
-    event.target.src = '/assets/images/placeholder.svg';
-  }
 
   /**
    * Format price with currency

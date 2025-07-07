@@ -1,0 +1,32 @@
+/* Footer specific styles for enhanced interactions */
+
+/* Smooth transitions for social media icons */
+footer a svg {
+  transition: transform 0.2s ease;
+}
+
+footer a:hover svg {
+  transform: scale(1.1);
+}
+
+/* Enhanced hover effects for links */
+footer a:not(.social-link):hover {
+  transform: translateX(2px);
+}
+
+/* Heart animation for the "made with love" section */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+footer svg.text-red-500:hover {
+  animation: heartbeat 0.6s ease-in-out;
+}

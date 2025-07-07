@@ -1,9 +1,8 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { AuthService } from '../../../core/services/auth.service';
-import { ThemeService } from '../../../core/services/theme.service';
-import { User } from '../../../core/models/auth.models';
+import { AuthService } from '@core/services/auth.service';
+import { User } from '@core/models/auth.models';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +12,6 @@ import { User } from '../../../core/models/auth.models';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private authService = inject(AuthService);
-  private themeService = inject(ThemeService);
   private router = inject(Router);
   private destroy$ = new Subject<void>();
 

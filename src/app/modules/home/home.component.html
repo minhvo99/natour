@@ -3,14 +3,14 @@
   class="relative min-h-screen flex items-center justify-center overflow-hidden"
 >
   <!-- Background Video/Image -->
-  <div class="absolute inset-0 z-0">
+  <div class="absolute inset-0 z-1">
     <img
-      src="/assets/images/hero-bg.jpg"
+      src="/assets/images/banner-01.jpg"
       alt="Adventure landscape"
       class="w-full h-full object-cover"
       loading="lazy"
     />
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div class="absolute inset-0 bg-opacity-40"></div>
   </div>
 
   <!-- Hero Content -->
@@ -74,154 +74,11 @@
 
     <!-- Tours Slider Container -->
     <div class="relative mb-12">
-      <!-- Slider Content -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Tour Card 1 -->
-        <div
-          class="bg-background border border-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-        >
-          <div class="relative h-48 overflow-hidden">
-            <img
-              src="/assets/images/tour-1.jpg"
-              alt="Tour 1"
-              class="w-full h-full object-cover"
-            />
-            <div
-              class="absolute top-4 left-4 bg-headline bg-opacity-80 text-background px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
-            >
-              5 days
-            </div>
-            <div
-              class="absolute top-4 right-4 bg-button text-button-text px-3 py-2 rounded-lg font-bold text-lg shadow-lg"
-            >
-              $397
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-headline mb-2">
-              The Forest Hiker
-            </h3>
-            <div class="flex items-center justify-between mb-3">
-              <span
-                class="text-sm bg-tertiary bg-opacity-20 text-tertiary px-2 py-1 rounded font-medium"
-                >Easy</span
-              >
-              <div class="flex items-center">
-                <span class="text-highlight text-sm">★★★★★</span>
-                <span class="text-sm text-paragraph ml-1">4.7 (37)</span>
-              </div>
-            </div>
-            <p class="text-paragraph text-sm mb-4">
-              Explore the breathtaking Amazon rainforest with experienced
-              guides.
-            </p>
-            <button
-              class="w-full bg-button text-button-text py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
+        @for (tour of featuredTours(); track tour._id) {
 
-        <!-- Tour Card 2 -->
-        <div
-          class="bg-background border border-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-        >
-          <div class="relative h-48 overflow-hidden">
-            <img
-              src="/assets/images/tour-2.jpg"
-              alt="Tour 2"
-              class="w-full h-full object-cover"
-            />
-            <div
-              class="absolute top-4 left-4 bg-headline bg-opacity-80 text-background px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
-            >
-              7 days
-            </div>
-            <div
-              class="absolute top-4 right-4 bg-button text-button-text px-3 py-2 rounded-lg font-bold text-lg shadow-lg"
-            >
-              $497
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-headline mb-2">
-              The Sea Explorer
-            </h3>
-            <div class="flex items-center justify-between mb-3">
-              <span
-                class="text-sm bg-highlight bg-opacity-20 text-highlight px-2 py-1 rounded font-medium"
-                >Medium</span
-              >
-              <div class="flex items-center">
-                <span class="text-highlight text-sm">★★★★★</span>
-                <span class="text-sm text-paragraph ml-1">4.9 (54)</span>
-              </div>
-            </div>
-            <p class="text-paragraph text-sm mb-4">
-              Dive into crystal-clear waters and explore vibrant coral reefs.
-            </p>
-            <button
-              class="w-full bg-button text-button-text py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-
-        <!-- Tour Card 3 -->
-        <div
-          class="bg-background border border-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-        >
-          <div class="relative h-48 overflow-hidden">
-            <img
-              src="/assets/images/tour-3.jpg"
-              alt="Tour 3"
-              class="w-full h-full object-cover"
-            />
-            <div
-              class="absolute top-4 left-4 bg-headline bg-opacity-80 text-background px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm"
-            >
-              10 days
-            </div>
-            <div
-              class="absolute top-4 right-4 bg-button text-button-text px-3 py-2 rounded-lg font-bold text-lg shadow-lg"
-            >
-              $897
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-headline mb-2">
-              The Snow Adventurer
-            </h3>
-            <div class="flex items-center justify-between mb-3">
-              <span
-                class="text-sm bg-red-500 bg-opacity-20 text-red-600 px-2 py-1 rounded font-medium"
-                >Difficult</span
-              >
-              <div class="flex items-center">
-                <span class="text-highlight text-sm">★★★★★</span>
-                <span class="text-sm text-paragraph ml-1">4.8 (23)</span>
-              </div>
-            </div>
-            <p class="text-paragraph text-sm mb-4">
-              Challenge yourself with an epic trek through the stunning
-              Himalayas.
-            </p>
-            <button
-              class="w-full bg-button text-button-text py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slider Navigation -->
-      <div class="flex justify-center mt-8">
-        <button class="w-3 h-3 bg-highlight rounded-full mx-1"></button>
-        <button class="w-3 h-3 bg-secondary rounded-full mx-1"></button>
-        <button class="w-3 h-3 bg-secondary rounded-full mx-1"></button>
+        <tour-card [tour]="tour" class="h-full"></tour-card>
+        }
       </div>
     </div>
 
@@ -365,7 +222,7 @@
           >
             <div class="flex items-center mb-4">
               <img
-                src="/assets/images/customer-1.jpg"
+                src="/assets/images/banner-01.jpg"
                 alt="Customer"
                 class="w-12 h-12 rounded-full mr-4"
               />
@@ -389,7 +246,7 @@
           >
             <div class="flex items-center mb-4">
               <img
-                src="/assets/images/customer-2.jpg"
+                src="/assets/images/banner-02.jpg"
                 alt="Customer"
                 class="w-12 h-12 rounded-full mr-4"
               />
@@ -425,28 +282,28 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
         <div class="aspect-square overflow-hidden rounded-lg">
           <img
-            src="/assets/images/gallery-1.jpg"
+            src="/assets/images/banner-01.jpg"
             alt="Adventure photo"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
         <div class="aspect-square overflow-hidden rounded-lg">
           <img
-            src="/assets/images/gallery-2.jpg"
+            src="/assets/images/banner-02.jpg"
             alt="Adventure photo"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
         <div class="aspect-square overflow-hidden rounded-lg">
           <img
-            src="/assets/images/gallery-3.jpg"
+            src="/assets/images/banner-03.jpg"
             alt="Adventure photo"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
         <div class="aspect-square overflow-hidden rounded-lg">
           <img
-            src="/assets/images/gallery-4.jpg"
+            src="/assets/images/banner-01.jpg"
             alt="Adventure photo"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
@@ -457,13 +314,13 @@
 </section>
 
 <!-- Newsletter Signup Section -->
-<section class="py-16 bg-tertiary">
+<section class="py-16 bg-tertiary mb-8">
   <div class="container">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="section-title font-bold text-headline mb-4">Stay Inspired</h2>
       <p class="section-subtitle text-paragraph mb-8">
         Get adventure inspiration delivered weekly. Discover new destinations,
-        travel tips, and exclusive offers.
+        travel tips, and exclusive offers
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">

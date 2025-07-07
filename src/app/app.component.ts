@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ThemeService } from './core/services/theme.service';
+import { ThemeService } from './shared/services/theme.service';
+import { PrimeNGService } from './shared/services/primeng.service';
 
 @Component({
     selector: 'app-root',
@@ -9,9 +10,10 @@ import { ThemeService } from './core/services/theme.service';
 })
 export class AppComponent implements OnInit {
   private themeService = inject(ThemeService);
+  private primeNGService = inject(PrimeNGService);
 
   ngOnInit(): void {
-    // Theme service will automatically load the saved theme
-    // or apply the default theme
+    // Initialize PrimeNG with our custom configuration
+    this.primeNGService.initialize();
   }
 }

@@ -34,16 +34,13 @@
 
   <!-- Tours Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-    <app-tour-card
-      *ngFor="let tour of tours"
-      [tour]="tour"
-      (bookTour)="onBookTour($event)"
-      class="h-full"
-    ></app-tour-card>
+    @for (tour of tours(); track tour){
+    <tour-card [tour]="tour" class="h-full"></tour-card>
+    }
   </div>
 
   <!-- No Tours Message -->
-  <div *ngIf="tours.length === 0" class="text-center py-12">
+  <div *ngIf="tours().length === 0" class="text-center py-12">
     <div class="bg-white rounded-lg shadow-md p-8 max-w-md mx-auto">
       <svg
         class="w-16 h-16 text-tertiary mx-auto mb-4"

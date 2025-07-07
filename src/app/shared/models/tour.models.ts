@@ -6,8 +6,10 @@ export interface Tour {
   maxGroupSize: number;
   difficulty: 'easy' | 'medium' | 'difficult';
   price: number;
-  description: string;
+  description?: string;
   image: string;
+  imageCover: string;
+  summary?: string; // Short description for tour card
   ratingsAverage: number;
   ratingsQuantity: number;
   startDates?: Date[];
